@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Enter Event Details</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1><img src="img/four_circles.png" width="300" />FCRE</h1>
+      </header>
+    </div>
+    <div>
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/index.html"> Home</a>
+          </li>
+          <li>
+            <a href="/about.html"> About</a>
+          </li>
+          <li>
+            <a href="/events.html"> Events</a>
+          </li>
+          <li class="active">
+            <a href="/new-event.html"> Create Event</a>
+          </li>
+          <li>
+            <a href="/specials.html"> Special</a>
+          </li>
+          <li>
+            <a href="/logistics.html"> Logistics Approval</a>
+          </li>
+          <li>
+            <a href="/survey.html"> Event Survey</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2>Enter Event Details</h2>
+        <div class="alert alert-info">
+          <strong>Client Selected:</strong>
+          <span id="clientDisplay">Loading...</span>
+        </div>
+
+        <form id="eventDetailsForm">
+          <!-- Basic Event Information -->
+          <div class="form-section">
+            <h3>Event Information</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="eventName">Event Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="eventName"
+                    name="eventName"
+                    required
+                    placeholder="e.g., Chase Bank Corporate Team Building"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="eventType">Event Type *</label>
+                  <select
+                    class="form-control"
+                    id="eventType"
+                    name="eventType"
+                    required
+                  >
+                    <option value="">Select Event Type</option>
+                    <option value="ride-along">Ride Along Experience</option>
+                    <option value="driving">Driving Experience</option>
+                    <option value="advanced-race">
+                      Advanced Race Experience
+                    </option>
+                    <option value="full-day">Full-day Event</option>
+                    <option value="half-day">Half-day Event</option>
+                    <option value="corporate">Corporate Group Event</option>
+                    <option value="team-building">Team Building</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date and Time -->
+          <div class="form-section">
+            <h3>Date and Time</h3>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="eventDate">Event Date *</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="eventDate"
+                    name="eventDate"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="startTime">Start Time *</label>
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="startTime"
+                    name="startTime"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="endTime">End Time *</label>
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="endTime"
+                    name="endTime"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Racetrack Selection -->
+          <div class="form-section">
+            <h3>Racetrack Location</h3>
+            <p>Select from our approved racetracks:</p>
+
+            <div class="racetrack-selection">
+              <div class="track-option">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="racetrack"
+                    value="daytona"
+                    required
+                  />
+                  <span class="eventslist">
+                    <strong>Daytona International Speedway</strong>
+                    <br />
+                    <small
+                      >Daytona Beach, FL | 2.5-mile tri-oval | Premium
+                      Facility</small
+                    >
+                  </span>
+                </label>
+              </div>
+
+              <div class="track-option">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="racetrack"
+                    value="talladega"
+                    required
+                  />
+                  <span class="eventslist">
+                    <strong>Talladega Superspeedway</strong>
+                    <br />
+                    <small
+                      >Talladega, AL | 2.66-mile tri-oval | High-speed
+                      Experience</small
+                    >
+                  </span>
+                </label>
+              </div>
+
+              <div class="track-option">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="racetrack"
+                    value="charlotte"
+                    required
+                  />
+                  <span class="eventslist">
+                    <strong>Charlotte Motor Speedway</strong>
+                    <br />
+                    <small
+                      >Charlotte, NC | 1.5-mile quad-oval | Modern
+                      Amenities</small
+                    >
+                  </span>
+                </label>
+              </div>
+
+              <div class="track-option">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="racetrack"
+                    value="atlanta"
+                    required
+                  />
+                  <span class="eventslist">
+                    <strong>Atlanta Motor Speedway</strong>
+                    <br />
+                    <small
+                      >Hampton, GA | 1.54-mile quad-oval | Corporate
+                      Facilities</small
+                    >
+                  </span>
+                </label>
+              </div>
+
+              <div class="track-option">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="racetrack"
+                    value="phoenix"
+                    required
+                  />
+                  <span class="eventslist">
+                    <strong>Phoenix Raceway</strong>
+                    <br />
+                    <small
+                      >Avondale, AZ | 1-mile tri-oval | Desert Setting</small
+                    >
+                  </span>
+                </label>
+              </div>
+
+              <div class="track-option">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="racetrack"
+                    value="michigan"
+                    required
+                  />
+                  <span class="eventslist">
+                    <strong>Michigan International Speedway</strong>
+                    <br />
+                    <small
+                      >Brooklyn, MI | 2-mile D-shaped oval | Scenic
+                      Location</small
+                    >
+                  </span>
+                </label>
+              </div>
+
+              <div class="track-option">
+                <label class="radio-label">
+                  <input type="radio" name="racetrack" value="texas" required />
+                  <span class="eventslist">
+                    <strong>Texas Motor Speedway</strong>
+                    <br />
+                    <small
+                      >Fort Worth, TX | 1.5-mile quad-oval | Large
+                      Capacity</small
+                    >
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Details -->
+          <div class="form-section">
+            <h3>Additional Event Details</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="expectedParticipants"
+                    >Expected Number of Participants *</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="expectedParticipants"
+                    name="expectedParticipants"
+                    min="1"
+                    max="100"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="budget">Estimated Budget</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="budget"
+                    name="budget"
+                    placeholder="e.g., $10,000 - $15,000"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="specialRequests">Special Requirements or Notes</label>
+              <textarea
+                class="form-control"
+                id="specialRequests"
+                name="specialRequests"
+                rows="4"
+                placeholder="Any special accommodations, dietary restrictions, accessibility needs, etc."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg">
+              Submit Event Request
+            </button>
+            <button
+              type="button"
+              class="btn btn-default btn-lg"
+              onclick="history.back()"
+            >
+              Back
+            </button>
+            <a href="/index.html" class="btn btn-default btn-lg">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <footer>
+        FCRE | Phone: 800-555-1234 | 444 Four Circles Dr, Daytona, FL 32114
+      </footer>
+    </div>
+
+    <script>
+      // Get client information from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const clientParam = urlParams.get("client");
+      const companyParam = urlParams.get("company");
+
+      // Display selected client
+      const clientDisplay = document.getElementById("clientDisplay");
+      if (clientParam === "new" && companyParam) {
+        clientDisplay.textContent = companyParam + " (New Client)";
+      } else if (clientParam) {
+        const clientNames = {
+          "chase-bank": "Chase Bank",
+          "sprout-box": "Sprout Box",
+          "tech-innovations": "Tech Innovations Inc.",
+          "global-solutions": "Global Solutions Corp",
+          "summit-group": "Summit Group LLC",
+        };
+        clientDisplay.textContent =
+          clientNames[clientParam] || "Unknown Client";
+      } else {
+        clientDisplay.textContent = "No client selected";
+      }
+
+      // Set minimum date to today
+      const today = new Date().toISOString().split("T")[0];
+      document.getElementById("eventDate").setAttribute("min", today);
+
+      document
+        .getElementById("eventDetailsForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Basic validation
+          const eventName = document.getElementById("eventName").value.trim();
+          const eventDate = document.getElementById("eventDate").value;
+          const startTime = document.getElementById("startTime").value;
+          const endTime = document.getElementById("endTime").value;
+          const selectedTrack = document.querySelector(
+            'input[name="racetrack"]:checked'
+          );
+          const participants = document.getElementById(
+            "expectedParticipants"
+          ).value;
+
+          if (
+            !eventName ||
+            !eventDate ||
+            !startTime ||
+            !endTime ||
+            !selectedTrack ||
+            !participants
+          ) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+
+          // Validate time range
+          if (startTime >= endTime) {
+            alert("End time must be after start time.");
+            return;
+          }
+
+          // Redirect to confirmation page with event data
+          const params = new URLSearchParams({
+            client: clientParam || "unknown",
+            company: companyParam || clientDisplay.textContent,
+            eventName: eventName,
+            eventType: document.getElementById("eventType").value,
+            eventDate: eventDate,
+            startTime: startTime,
+            endTime: endTime,
+            racetrack: selectedTrack.value,
+            participants: participants,
+            budget: document.getElementById("budget").value || "Not specified",
+          });
+
+          window.location.href =
+            "new-event-confirmation.html?" + params.toString();
+        });
+    </script>
+  </body>
+</html>

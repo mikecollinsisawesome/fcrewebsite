@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Add New Client Details</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1><img src="img/four_circles.png" width="300" />FCRE</h1>
+      </header>
+    </div>
+    <div>
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/index.html"> Home</a>
+          </li>
+          <li>
+            <a href="/about.html"> About</a>
+          </li>
+          <li>
+            <a href="/events.html"> Events</a>
+          </li>
+          <li class="active">
+            <a href="/new-event.html"> Create Event</a>
+          </li>
+          <li>
+            <a href="/specials.html"> Special</a>
+          </li>
+          <li>
+            <a href="/logistics.html"> Logistics Approval</a>
+          </li>
+          <li>
+            <a href="/survey.html"> Event Survey</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2>Add New Client</h2>
+        <p>Enter the client's business information and contact details.</p>
+
+        <form id="newClientForm">
+          <!-- Client Business Information -->
+          <div class="form-section">
+            <h3>Business Information</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="companyName">Company Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="companyName"
+                    name="companyName"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="industry">Industry</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="industry"
+                    name="industry"
+                    placeholder="e.g., Banking, Technology"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="companyAddress">Business Address</label>
+                  <textarea
+                    class="form-control"
+                    id="companyAddress"
+                    name="companyAddress"
+                    rows="3"
+                    placeholder="Street Address, City, State, ZIP"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="companyPhone">Company Phone</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="companyPhone"
+                    name="companyPhone"
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="companyWebsite">Website</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="companyWebsite"
+                    name="companyWebsite"
+                    placeholder="https://www.company.com"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contacts Section -->
+          <div class="form-section">
+            <h3>Contact Information</h3>
+            <p>Add at least one contact person for this client.</p>
+
+            <div id="contactsContainer">
+              <!-- First contact (required) -->
+              <div class="contact-entry" data-contact="1">
+                <div class="ueventslist">
+                  <h4>Primary Contact</h4>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="contact1_firstName">First Name *</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="contact1_firstName"
+                          name="contact1_firstName"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="contact1_lastName">Last Name *</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="contact1_lastName"
+                          name="contact1_lastName"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="contact1_title">Job Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="contact1_title"
+                          name="contact1_title"
+                          placeholder="e.g., Event Coordinator"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="contact1_phone">Phone *</label>
+                        <input
+                          type="tel"
+                          class="form-control"
+                          id="contact1_phone"
+                          name="contact1_phone"
+                          required
+                          placeholder="(555) 123-4567"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="contact1_email">Email *</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="contact1_email"
+                          name="contact1_email"
+                          required
+                          placeholder="contact@company.com"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="contact1_mobile">Mobile Phone</label>
+                        <input
+                          type="tel"
+                          class="form-control"
+                          id="contact1_mobile"
+                          name="contact1_mobile"
+                          placeholder="(555) 987-6543"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="button" class="btn btn-info" id="addContactBtn">
+                + Add Another Contact
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">
+              Save Client & Continue
+            </button>
+            <a href="new-event.html" class="btn btn-default btn-lg">Back</a>
+            <a href="/index.html" class="btn btn-default btn-lg">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <footer>
+        FCRE | Phone: 800-555-1234 | 444 Four Circles Dr, Daytona, FL 32114
+      </footer>
+    </div>
+
+    <script>
+      let contactCounter = 1;
+
+      document
+        .getElementById("addContactBtn")
+        .addEventListener("click", function () {
+          contactCounter++;
+
+          const contactsContainer =
+            document.getElementById("contactsContainer");
+          const newContactHTML = `
+          <div class="contact-entry" data-contact="${contactCounter}">
+            <div class="ueventslist">
+              <h4>Additional Contact ${contactCounter - 1} 
+                <button type="button" class="btn btn-sm btn-danger pull-right remove-contact-btn">Remove</button>
+              </h4>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="contact${contactCounter}_firstName">First Name</label>
+                    <input type="text" class="form-control" id="contact${contactCounter}_firstName" name="contact${contactCounter}_firstName">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="contact${contactCounter}_lastName">Last Name</label>
+                    <input type="text" class="form-control" id="contact${contactCounter}_lastName" name="contact${contactCounter}_lastName">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="contact${contactCounter}_title">Job Title</label>
+                    <input type="text" class="form-control" id="contact${contactCounter}_title" name="contact${contactCounter}_title">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="contact${contactCounter}_phone">Phone</label>
+                    <input type="tel" class="form-control" id="contact${contactCounter}_phone" name="contact${contactCounter}_phone">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="contact${contactCounter}_email">Email</label>
+                    <input type="email" class="form-control" id="contact${contactCounter}_email" name="contact${contactCounter}_email">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="contact${contactCounter}_mobile">Mobile Phone</label>
+                    <input type="tel" class="form-control" id="contact${contactCounter}_mobile" name="contact${contactCounter}_mobile">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+          contactsContainer.insertAdjacentHTML("beforeend", newContactHTML);
+        });
+
+      // Handle remove contact buttons
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("remove-contact-btn")) {
+          e.target.closest(".contact-entry").remove();
+        }
+      });
+
+      document
+        .getElementById("newClientForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Basic validation
+          const companyName = document
+            .getElementById("companyName")
+            .value.trim();
+          if (!companyName) {
+            alert("Please enter a company name.");
+            return;
+          }
+
+          // Simulate saving the client and redirect to event details
+          alert("Client saved successfully!");
+          window.location.href =
+            "new-event-details.html?client=new&company=" +
+            encodeURIComponent(companyName);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Event Request Confirmation</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1><img src="img/four_circles.png" width="300" />FCRE</h1>
+      </header>
+    </div>
+    <div>
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/index.html"> Home</a>
+          </li>
+          <li>
+            <a href="/about.html"> About</a>
+          </li>
+          <li>
+            <a href="/events.html"> Events</a>
+          </li>
+          <li class="active">
+            <a href="/new-event.html"> Create Event</a>
+          </li>
+          <li>
+            <a href="/specials.html"> Special</a>
+          </li>
+          <li>
+            <a href="/logistics.html"> Logistics Approval</a>
+          </li>
+          <li>
+            <a href="/survey.html"> Event Survey</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-success text-center">
+          <h2 class="approvedh1">Event Request Successfully Submitted</h2>
+          <p>
+            Your event has been added to the system and is now awaiting
+            approval.
+          </p>
+        </div>
+
+        <div class="ueventslist">
+          <h3>Event Summary</h3>
+          <table class="table">
+            <tr>
+              <th>Event Name:</th>
+              <td id="displayEventName">Loading...</td>
+            </tr>
+            <tr>
+              <th>Client:</th>
+              <td id="displayClient">Loading...</td>
+            </tr>
+            <tr>
+              <th>Event Type:</th>
+              <td id="displayEventType">Loading...</td>
+            </tr>
+            <tr>
+              <th>Date:</th>
+              <td id="displayDate">Loading...</td>
+            </tr>
+            <tr>
+              <th>Time:</th>
+              <td id="displayTime">Loading...</td>
+            </tr>
+            <tr>
+              <th>Location:</th>
+              <td id="displayLocation">Loading...</td>
+            </tr>
+            <tr>
+              <th>Expected Participants:</th>
+              <td id="displayParticipants">Loading...</td>
+            </tr>
+            <tr>
+              <th>Budget:</th>
+              <td id="displayBudget">Loading...</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="alert alert-info">
+          <h4>Current Status: <span class="declinedh1">REQUESTED</span></h4>
+          <p>
+            This event is currently in <strong>"requested"</strong> status and
+            is awaiting approval from:
+          </p>
+          <ul>
+            <li>
+              <strong>Logistics Team</strong> - Will review operational
+              requirements and resource availability
+            </li>
+            <li>
+              <strong>Racetrack</strong> - Will confirm track availability and
+              approve the booking
+            </li>
+          </ul>
+          <p>
+            Both approvals are required before the event can proceed. The core
+            information (date, time, location, and client name) has been sent to
+            both teams for their review.
+          </p>
+        </div>
+
+        <div class="ueventslist">
+          <h4>What Happens Next?</h4>
+          <ol>
+            <li>
+              The Logistics team will review your event request for operational
+              feasibility
+            </li>
+            <li>
+              The selected racetrack will review and confirm availability for
+              your requested date and time
+            </li>
+            <li>
+              Once both approvals are received, you will be contacted to
+              finalize event details
+            </li>
+            <li>
+              If either approval is declined, you will be contacted to discuss
+              alternative options
+            </li>
+          </ol>
+
+          <p><strong>Estimated Response Time:</strong> 3-5 business days</p>
+          <p>
+            <strong>Reference Number:</strong>
+            <span id="referenceNumber">FCRE-2025-</span>
+          </p>
+        </div>
+
+        <div class="form-group text-center">
+          <a href="/new-event.html" class="btn btn-primary btn-lg"
+            >Create Another Event</a
+          >
+          <a href="/events.html" class="btn btn-info btn-lg">View All Events</a>
+          <a href="/index.html" class="btn btn-default btn-lg"
+            >Return to Home</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <footer>
+        FCRE | Phone: 800-555-1234 | 444 Four Circles Dr, Daytona, FL 32114
+      </footer>
+    </div>
+
+    <script>
+      // Get event information from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // Display event details
+      document.getElementById("displayEventName").textContent =
+        urlParams.get("eventName") || "Not specified";
+      document.getElementById("displayClient").textContent =
+        urlParams.get("company") || "Not specified";
+      document.getElementById("displayEventType").textContent =
+        formatEventType(urlParams.get("eventType")) || "Not specified";
+      document.getElementById("displayDate").textContent =
+        formatDate(urlParams.get("eventDate")) || "Not specified";
+      document.getElementById("displayTime").textContent = formatTime(
+        urlParams.get("startTime"),
+        urlParams.get("endTime")
+      );
+      document.getElementById("displayLocation").textContent =
+        formatRacetrack(urlParams.get("racetrack")) || "Not specified";
+      document.getElementById("displayParticipants").textContent =
+        urlParams.get("participants") || "Not specified";
+      document.getElementById("displayBudget").textContent =
+        urlParams.get("budget") || "Not specified";
+
+      // Generate reference number
+      const now = new Date();
+      const refNumber =
+        "FCRE-2025-" +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        String(now.getDate()).padStart(2, "0") +
+        "-" +
+        String(now.getHours()).padStart(2, "0") +
+        String(now.getMinutes()).padStart(2, "0");
+      document.getElementById("referenceNumber").textContent = refNumber;
+
+      function formatEventType(type) {
+        const types = {
+          "ride-along": "Ride Along Experience",
+          driving: "Driving Experience",
+          "advanced-race": "Advanced Race Experience",
+          "full-day": "Full-day Event",
+          "half-day": "Half-day Event",
+          corporate: "Corporate Group Event",
+          "team-building": "Team Building",
+        };
+        return types[type] || type;
+      }
+
+      function formatDate(dateStr) {
+        if (!dateStr) return "Not specified";
+        const date = new Date(dateStr);
+        return date.toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      function formatTime(startTime, endTime) {
+        if (!startTime || !endTime) return "Not specified";
+        return formatTimeString(startTime) + " - " + formatTimeString(endTime);
+      }
+
+      function formatTimeString(timeStr) {
+        const [hours, minutes] = timeStr.split(":");
+        const hour = parseInt(hours);
+        const ampm = hour >= 12 ? "PM" : "AM";
+        const displayHour = hour % 12 || 12;
+        return displayHour + ":" + minutes + " " + ampm;
+      }
+
+      function formatRacetrack(track) {
+        const tracks = {
+          daytona: "Daytona International Speedway (Daytona Beach, FL)",
+          talladega: "Talladega Superspeedway (Talladega, AL)",
+          charlotte: "Charlotte Motor Speedway (Charlotte, NC)",
+          atlanta: "Atlanta Motor Speedway (Hampton, GA)",
+          phoenix: "Phoenix Raceway (Avondale, AZ)",
+          michigan: "Michigan International Speedway (Brooklyn, MI)",
+          texas: "Texas Motor Speedway (Fort Worth, TX)",
+        };
+        return tracks[track] || track;
+      }
+    </script>
+  </body>
+</html>

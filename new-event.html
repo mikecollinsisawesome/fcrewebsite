@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Start New Event - Client Selection</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1><img src="img/four_circles.png" width="300" />FCRE</h1>
+      </header>
+    </div>
+    <div>
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/index.html"> Home</a>
+          </li>
+          <li>
+            <a href="/about.html"> About</a>
+          </li>
+          <li>
+            <a href="/events.html"> Events</a>
+          </li>
+          <li class="active">
+            <a href="/new-event.html"> Create Event</a>
+          </li>
+          <li>
+            <a href="/specials.html"> Special</a>
+          </li>
+          <li>
+            <a href="/logistics.html"> Logistics Approval</a>
+          </li>
+          <li>
+            <a href="/survey.html"> Event Survey</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2>Start New Event - Client Selection</h2>
+        <p>
+          Select an existing client or add a new client to begin creating an
+          event.
+        </p>
+
+        <form
+          id="clientSelectionForm"
+          action="new-event-step2.html"
+          method="GET"
+        >
+          <div class="form-group">
+            <h3>Select Client:</h3>
+
+            <!-- New Client Option -->
+            <div class="client-option">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="client"
+                  value="new"
+                  id="newClientRadio"
+                  required
+                />
+                <span class="eventslist">
+                  <strong>+ Add New Client</strong>
+                  <br />
+                  <small>Create a new client profile</small>
+                </span>
+              </label>
+            </div>
+
+            <!-- Existing Clients -->
+            <div class="client-option">
+              <label class="radio-label">
+                <input type="radio" name="client" value="chase-bank" required />
+                <span class="eventslist">
+                  <strong>Chase Bank</strong>
+                  <br />
+                  <small
+                    >Primary Contact: Sarah Johnson | Phone: 555-0123</small
+                  >
+                </span>
+              </label>
+            </div>
+
+            <div class="client-option">
+              <label class="radio-label">
+                <input type="radio" name="client" value="sprout-box" required />
+                <span class="eventslist">
+                  <strong>Sprout Box</strong>
+                  <br />
+                  <small>Primary Contact: Mike Chen | Phone: 555-0456</small>
+                </span>
+              </label>
+            </div>
+
+            <div class="client-option">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="client"
+                  value="tech-innovations"
+                  required
+                />
+                <span class="eventslist">
+                  <strong>Tech Innovations Inc.</strong>
+                  <br />
+                  <small
+                    >Primary Contact: Lisa Rodriguez | Phone: 555-0789</small
+                  >
+                </span>
+              </label>
+            </div>
+
+            <div class="client-option">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="client"
+                  value="global-solutions"
+                  required
+                />
+                <span class="eventslist">
+                  <strong>Global Solutions Corp</strong>
+                  <br />
+                  <small>Primary Contact: David Wilson | Phone: 555-0321</small>
+                </span>
+              </label>
+            </div>
+
+            <div class="client-option">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="client"
+                  value="summit-group"
+                  required
+                />
+                <span class="eventslist">
+                  <strong>Summit Group LLC</strong>
+                  <br />
+                  <small
+                    >Primary Contact: Emma Thompson | Phone: 555-0654</small
+                  >
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">
+              Continue
+            </button>
+            <a href="/index.html" class="btn btn-default btn-lg">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <footer>
+        FCRE | Phone: 800-555-1234 | 444 Four Circles Dr, Daytona, FL 32114
+      </footer>
+    </div>
+
+    <script>
+      document
+        .getElementById("clientSelectionForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const selectedClient = document.querySelector(
+            'input[name="client"]:checked'
+          );
+          if (!selectedClient) {
+            alert("Please select a client to continue.");
+            return;
+          }
+
+          if (selectedClient.value === "new") {
+            // Redirect to new client page
+            window.location.href = "new-event-add-client.html";
+          } else {
+            // Redirect to event details page with client info
+            window.location.href =
+              "new-event-details.html?client=" + selectedClient.value;
+          }
+        });
+    </script>
+  </body>
+</html>

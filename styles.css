@@ -1,0 +1,279 @@
+main {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  font-family: sans-serif;
+  background-color: black;
+  color: white;
+}
+nav {
+  padding: 8px;
+  background-color: lightgray;
+}
+
+h2 {
+  border: 3px hidden darkblue;
+  padding: 10px;
+  background-color: darkblue;
+  color: white;
+  border-radius: 6px;
+}
+p {
+  color: #070e12;
+  font-family: sans-serif;
+  margin: 1%;
+}
+
+footer {
+  font-family: arial, sans-serif;
+  padding: 7px;
+  font-size: smaller;
+  text-align: center;
+  color: white;
+  background-color: black;
+  margin-top: 6%;
+}
+
+q {
+  font-style: italic;
+}
+
+h1 {
+  font-family: sans-serif;
+  margin: 0%;
+}
+
+a {
+  color: dimgrey;
+  text-decoration: none;
+}
+a:hover {
+  color: darkred;
+}
+
+.eventslist {
+  font-family: sans-serif;
+  list-style-type: none;
+  background-color: lightgrey;
+  border: 2px grey solid;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.eventslist:hover {
+  color: darkred;
+}
+.ueventslist {
+  font-family: sans-serif;
+  list-style-type: none;
+  background-color: lightgrey;
+  border: 2px grey solid;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 4px;
+}
+
+.ueventslist:hover {
+  color: darkred;
+  background-color: darkgrey;
+}
+
+.uloglist {
+  font-family: sans-serif;
+  list-style-type: none;
+  background-color: lightgrey;
+  border: 2px grey solid;
+  padding: 10px;
+  margin: 4px;
+}
+
+.uloglist:hover {
+  color: darkred;
+  background-color: darkgrey;
+}
+h3 {
+  font-family: sans-serif;
+}
+
+h4 {
+  font-family: sans-serif;
+}
+
+.logp {
+  margin-bottom: 10px;
+}
+
+.approvedh1 {
+  color: green;
+}
+.declinedh1 {
+  color: darkred;
+}
+
+.approvedsmall {
+  color: green;
+}
+#greenbruh {
+  color: green;
+}
+
+.appdeny {
+  font-family: sans-serif;
+  list-style-type: none;
+  background-color: lightgrey;
+  border: 2px grey solid;
+  padding: 10px;
+  margin: 4px;
+}
+
+.appdeny:hover {
+  color: darkred;
+  background-color: darkgrey;
+}
+
+th {
+  margin-top: 6px;
+  text-align: left;
+  background-color: darkblue;
+  color: white;
+  padding: 5px;
+}
+
+td {
+  padding: 7px;
+  border-bottom: 1px solid;
+}
+
+table {
+  font-family: sans-serif;
+}
+
+table:hover {
+}
+
+/* Additional styles for event creation pages */
+
+.client-option,
+.track-option {
+  margin-bottom: 10px;
+}
+
+.radio-label {
+  display: block;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Show the radio button normally */
+.radio-label input[type="radio"] {
+  margin-right: 10px;
+  margin-top: 5px;
+  float: left;
+  width: auto;
+}
+
+.radio-label .eventslist {
+  display: block;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+/* When radio button is selected, highlight the box */
+.radio-label input[type="radio"]:checked + .eventslist {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.radio-label input[type="radio"]:checked + .eventslist:hover {
+  background-color: #c3e6cb;
+  color: #155724;
+}
+
+/* Form sections */
+.form-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+}
+
+.contact-entry {
+  margin-bottom: 20px;
+}
+
+.remove-contact-btn {
+  margin-top: -5px;
+}
+
+.racetrack-selection .eventslist {
+  margin-bottom: 8px;
+}
+
+.alert {
+  border-radius: 6px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
+
+/* Table styling improvements */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  background-color: darkblue;
+  color: white;
+  border: none;
+  width: 200px;
+}
+
+.table td {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Button spacing */
+.btn + .btn {
+  margin-left: 10px;
+}
+
+/* Form control spacing */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Clear floats */
+.client-option::after,
+.track-option::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Status styling */
+.status-requested {
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
